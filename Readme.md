@@ -21,16 +21,27 @@
 
 依次运行
 bash /shell/format.sh        从CBLUE数据集开始改造
+
 bash /shell/train_lora.sh    lora微调
+
 bash /shell/merge.sh         合并微调模型
+
 bash /shell/logits.sh        生成B和T的target与logits
+
 bash /shell/label.sh         生成数据集的label
+
 python /calibration/LLaMa_generate.py   生成embedding和注意力分数
+
 bash /shell/score_attention.sh          生成max_a等注意力参数
+
 python calibration/TrainProbes.py       通过获取的参数进行校准器训练和测试      （1）
+
 bash /shell/merge_data.sh    不同层参数生成的预测合并成一个文件                 （2）
+
 bash /shell/calibration.sh   对生成的预测进行校准图和指标生成                   （3）
 
 额外：
+
 bash /shell/multiply.sh      对不同的参数进行合并，获取多参数
+
 重复（1）（2）（3）可以获取多参数的校准效果
