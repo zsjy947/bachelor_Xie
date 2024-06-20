@@ -1,0 +1,26 @@
+{
+    "notes": {
+      "Model options": "'6.7b', '2.7b', '1.3b', '350m' for OPT, and 'LLaMA2-7b', 'chatglm-6b', 'chinese-llama-2-7b', '30B', and '65B' for LLaMA", 
+      "true_false": "true if you want to add '_true_false' as suffix to dataset names for training"
+    },
+    "model_path" : "/mnt/nvme_share/srt07/PromptCBLUE-main/experiments/CHIP-CTC/promptcblue-CHIP-CTC-pt-v0/checkpoint-12500-merge",
+    "task" : "reg",
+    "model": "llama-7b",
+    "parameter":"embeddings",
+    "remove_period": false,
+    "test_first_only": true,
+    "save_probes": true,    
+    "repeat_each": 10,
+    "probes_dir": "/mnt/nvme_share/srt07/Probes_Xie/CBLUEdatasets/CMeEE-V2/probes",
+    "layers_to_use": [1,2,3,4,5,6,7,8],
+    "layer": -4,
+    "list_of_datasets": ["test","trainB2"],
+    "dataset_path": "/mnt/nvme_share/srt07/Probes_Xie/CBLUEdatasets/CMeEE-V2/pre-data",
+    "processed_dataset_path": "/mnt/nvme_share/srt07/Probes_Xie/CBLUEdatasets/CMeEE-V2/attention",
+    "true_false": false,
+    "batch_size": 2,
+    "gen_predictions_dataset": "embeddings_testchinese-llama-2-7b",
+    "gen_predictions_layer": -4,
+    "suffix_list": ["animals_rp", "facts_rp"]
+  }
+  
