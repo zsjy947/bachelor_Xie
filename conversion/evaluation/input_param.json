@@ -1,0 +1,7 @@
+{
+  "fileData":{
+    "standardFilePath":"/mnt/nvme_share/srt07/PromptCBLUE-main/datasets/CMeEE-V2/test/format_dev.json",
+    "userFilePath":"/mnt/nvme_share/srt07/PromptCBLUE-main/datasets/CMeEE-V2/test/format_prediction.json",
+    "outFilePath":"/mnt/nvme_share/srt07/PromptCBLUE-main/datasets/CMeEE-V2/test/label.csv"
+  }
+}
