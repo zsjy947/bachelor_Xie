@@ -206,7 +206,7 @@ def main():
     If processing a dataset or saving the data fails, the script logs an error message and continues with the next dataset.
     """
     try:
-        with open("/calibration/config.json") as config_file:
+        with open("calibration/config.json") as config_file:
             config_parameters = json.load(config_file)
     except FileNotFoundError:
         logging.error("Configuration file not found. Please ensure the file exists and the path is correct.")
