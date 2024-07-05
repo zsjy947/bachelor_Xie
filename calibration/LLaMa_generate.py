@@ -183,7 +183,7 @@ def save_data(df, output_path: Path, dataset_name: str, model_name: str, layer: 
     """
     output_path.mkdir(parents=True, exist_ok=True)
     filename_suffix = "_rmv_period" if remove_period else ""
-    output_file = output_path / f"attentionss_{dataset_name}{model_name}_{abs(layer)}{filename_suffix}.csv"
+    output_file = output_path / f"embeddings_{dataset_name}{model_name}_{abs(layer)}{filename_suffix}.csv"
     try:
         df.to_csv(output_file, index=False,encoding='utf-8')
     except PermissionError:

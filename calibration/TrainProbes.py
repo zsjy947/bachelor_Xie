@@ -60,15 +60,15 @@ def load_config(config_file):
         sys.exit(1)
 
 
-def load_datasets(dataset_names, layers_to_process, should_remove_period, input_path, model_name, idx):
+def load_datasets(file_name,dataset_names, layers_to_process, should_remove_period, input_path, model_name, idx):
     datasets = []
     dataset_paths = []
     for dataset_name in dataset_names:
         try:
             if should_remove_period:
-                path = input_path / f"embeddings_{dataset_name}{model_name}_{abs(layers_to_process[idx])}_rmv_period.csv"
+                path = input_path / f"{file_name}_{dataset_name}{model_name}_{abs(layers_to_process[idx])}_rmv_period.csv"
             else:
-                path = input_path / f"embeddings_{dataset_name}{model_name}_{abs(layers_to_process[idx])}.csv"
+                path = input_path / f"{file_name}_{dataset_name}{model_name}_{abs(layers_to_process[idx])}.csv"
             datasets.append(pd.read_csv(path,encoding='UTF-8'))
             dataset_paths.append(path)
         except FileNotFoundError:
@@ -355,10 +355,15 @@ def main():
     task_type = config_parameters['task']
     parameter = config_parameters['parameter']
 
+    if parameter == 'embeddings' :
+        file_name = 'embeddings'
+    else :
+        file_name = 'attentions'
+
     # Iterate over the layers in "layer_num_list"
     for idx in range(len(layers_to_process)):
         # Load the datasets
-        datasets, dataset_paths = load_datasets(dataset_names, layers_to_process, should_remove_period, input_path, model_name, idx)
+        datasets, dataset_paths = load_datasets(file_name,dataset_names, layers_to_process, should_remove_period, input_path, model_name, idx)
 
         # Prepare the datasets
         train_datasets, test_datasets = prepare_datasets(datasets, dataset_names, test_first_only)
